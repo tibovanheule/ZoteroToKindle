@@ -1,0 +1,10 @@
+cmake_minimum_required(VERSION 3.15)
+project(ZoteroToKindle)
+
+set(CMAKE_CXX_STANDARD 14)
+add_executable(ZoteroToKindle main.cpp)
+FIND_PACKAGE( CURL REQUIRED )
+set(BoostVersion "${CURL_VERSION_STRING}")
+message(STATUS "Curl version: ${CURL_VERSION_STRING}")
+INCLUDE_DIRECTORIES(${CURL_INCLUDE_DIRS} )
+TARGET_LINK_LIBRARIES(ZoteroToKindle ${CURL_LIBRARIES} -lcurl)
